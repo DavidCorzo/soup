@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
+import csv
+import requests
 from bs4 import BeautifulSoup
-import requests,sys,csv,json
+import sys
+sys.path.append('code')
+# import json
 
-url="http://ufm.edu/Portal"
+url = "http://ufm.edu/Portal"
 # Make a GET request to fetch the raw HTML content
 try:
     html_content = requests.get(url).text
@@ -14,7 +18,7 @@ except:
 soup = BeautifulSoup(html_content, "html.parser")
 
 # print if needed, gets too noisy
-#print(soup.prettify())
+# print(soup.prettify())
 
 print(soup.title)
 print(soup.title.string)
