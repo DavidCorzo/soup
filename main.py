@@ -1,4 +1,4 @@
-import fun_dgcm
+# import fun_dgcm
 import sys
 from bs4 import BeautifulSoup
 
@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 def main():
 
     lenght_of_args = len(sys.argv)
-
+    # print(lenght_of_args)
     try:
         if lenght_of_args == 1:
             fun_dgcm.ALL()

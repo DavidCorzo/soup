@@ -5,7 +5,8 @@ import requests
 from bs4 import BeautifulSoup
 import sys
 import urllib
-
+import json
+import ast
 
 def ALL():
     InstanceOne = PortalOne(BeautifulSoup(portal_getter("http://ufm.edu/Portal"), "html.parser"))
@@ -475,28 +476,91 @@ class Directorio():
         return vowelized
 
     def get_the_info_for_json(self):
-        master = {'Edificio Académico':[],'Edificio Escuela de Negocios':[],'6 Avenida 7-55':[],'Edificio Centro Estudiantil':[],'':[],'':[],'6 Calle 7-11':[],'Edificio Biblioteca':[],'Centro Cultural':[]}
-        table = self.soup_directorio.findAll("table",{"class":"tabla ancho100"})
-        counter = 0
-        chld = []
-        for i in table:
-            child = table[counter].findAll('tr')
-            chld.append(child)
-        for a in chld:
-            a = str(a)
-            a = a.replace('\n','')
-        tr = []
-        for z in chld:
-            z = str(z)
-            if 'tr' in z:
-                tr.append(z)
+        master = {'Edificio Academico':[],'Edificio Escuela de Negocios':[],'6 Avenida 7-55':[],'6 Calle 7-11':[],'Centro estudiantil':[],'Centro Cultural':[] ,'Centro Cultural, Auditorio Juan Bautista Gutierrez':[],'Centro Estudiantil':[],'Edificio Biblioteca':[],'No location':[]}
+        table = self.soup_directorio.find_all("table",{"class":"tabla ancho100"})
+        tablaUno = table[0] 
+        tablaDos = table[1]
+        # print(tablaUno,tablaDos)
 
-        for b in tr:
-            if ('Edificio Académico' in b) and ('Arquitectura' in b):
-                print(1)
+        for fila in tablaUno.find_all("tr"):
+            row = fila.find_all("td") #genera una lista de columnas
+            if len(row) == 5:
+                # print('yeah')
+                primeraColumna = row[0].text  #find(text=True).replace('\n','').replace(',','') #primera columna
+                quintaColumna = row[4].text #segunda columna en cuestión
                 
+                temp = []
+                if 'Edificio Académico' in str(quintaColumna):
+                    master['Edificio Academico'].append(primeraColumna)
 
-        # for k,v in master.items():
-        #     print("key",k,"val",v)
-# Instance = Directorio(soup_directorio)
-# print(Instance.get_the_info_for_json())
+                elif 'Edificio Escuela de Negocios' in str(quintaColumna):
+                    master['Edificio Escuela de Negocios'].append(primeraColumna)
+                
+                elif '6 Avenida 7-55' in str(quintaColumna):
+                    master['6 Avenida 7-55'].append(primeraColumna)
+                
+                elif '6 Calle 7-11' in str(quintaColumna):
+                    master['6 Calle 7-11'].append(primeraColumna)
+                
+                elif ('Edificio Académico' not in str(quintaColumna)) and ('Edificio Escuela de Negocios' not in str(quintaColumna)) and ('6 Avenida 7-55' not in str(quintaColumna)) and ('6 Calle 7-11' not in str(quintaColumna)):
+                    master['No location'].append(primeraColumna)
+            
+        for fila in tablaDos.find_all("tr"):
+            row = fila.find_all("td") #genera una lista de columnas
+            if len(row) == 5:
+                # print('yeah')
+                primeraColumna = row[0].text  #find(text=True).replace('\n','').replace(',','') #primera columna
+                quintaColumna = row[4].text #segunda columna en cuestión
+                
+                if 'Edificio Académico' in str(quintaColumna):
+                    master['Edificio Academico'].append(primeraColumna)
+
+                elif 'Edificio Escuela de Negocios' in str(quintaColumna):
+                    master['Edificio Escuela de Negocios'].append(primeraColumna)
+                
+                elif '6 Avenida 7-55' in str(quintaColumna):
+                    master['6 Avenida 7-55'].append(primeraColumna)
+                
+                elif '6 Calle 7-11' in str(quintaColumna):
+                    master['6 Calle 7-11'].append(primeraColumna)
+
+                elif 'Centro Estudiantil' in str(quintaColumna):
+                    master['Centro Estudiantil'].append(primeraColumna)
+                
+                elif 'Edificio Biblioteca' in str(quintaColumna):
+                    master['Edificio Biblioteca'].append(primeraColumna)
+
+                elif 'Centro Cultural ' in str(quintaColumna):
+                    master['Centro Cultural'].append(primeraColumna)
+                
+                elif 'Centro Cultural,' in str(quintaColumna):
+                    master['Centro Cultural, Auditorio Juan Bautista Gutierrez'].append(primeraColumna)
+                    
+                elif ('Edificio Academico' not in str(quintaColumna)) and ('Edificio Escuela de Negocios' not in str(quintaColumna)) and ('6 Avenida 7-55' not in str(quintaColumna)) and ('6 Calle 7-11' not in str(quintaColumna)):
+                    master['No location'].append(primeraColumna)
+
+        # try:
+        # for k in master.items():
+        #     master[k] = master[k.replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('ñ','n')]
+        
+        for values in master.values():
+            counter = 0
+            for a in values:
+                values[counter] = values[counter].replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('ñ','n')
+                counter += 1
+        master = str(master).replace("'",'"')
+        master = ast.literal_eval(master)
+        print(master)
+
+        with open('logs/4directorio.json','w+') as f:
+            f.seek(0)
+            f.truncate()
+            f.seek(0)
+            json.dump(master,f)
+        # except:
+        #     print(master, 'could not write to log file')    
+
+# soup_directorio = Directorio(BeautifulSoup(portal_getter('https://www.ufm.edu/Directorio'), "html.parser"))
+InstanceFour = Directorio(BeautifulSoup(portal_getter(
+    'https://www.ufm.edu/Directorio'), "html.parser"))
+print(InstanceFour.get_the_info_for_json())
