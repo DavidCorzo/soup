@@ -8,157 +8,6 @@ import urllib
 import json
 import ast
 
-def ALL():
-    InstanceOne = PortalOne(BeautifulSoup(portal_getter("http://ufm.edu/Portal"), "html.parser"))
-    print('============================1==========================')
-    print('------------------------------------------------------')
-    print('Title:',InstanceOne.get_title())
-    print('------------------------------------------------------')
-    print('Address',InstanceOne.get_address())
-    print('------------------------------------------------------')
-    print(InstanceOne.get_phone_and_email())
-    print('------------------------------------------------------')
-    print(InstanceOne.get_menu_table())
-    print('------------------------------------------------------')
-    print(InstanceOne.properties_href())
-    print('------------------------------------------------------')
-    print(InstanceOne.get_href_ufm_mail_button())
-    print('------------------------------------------------------')
-    print(InstanceOne.get_href_MiU_button())
-    print('------------------------------------------------------')
-    print(InstanceOne.hrefs_img())
-    print('------------------------------------------------------')
-    print(InstanceOne.count_a())
-    print('------------------------------------------------------')
-    print('=======================================================') 
-    ####################################################### Next Instance #######################################################
-    ####################################################### Next Instance #######################################################
-    InstanceTwo = Estudios2(BeautifulSoup(portal_getter(
-    "http://ufm.edu/Estudios"), "html.parser"))
-    print('============================2==========================')
-    print('------------------------------------------------------')
-    print(InstanceTwo.navigate_to_estudios())
-    print('------------------------------------------------------')
-    print(InstanceTwo.display_items_topmenu())
-    print('------------------------------------------------------')
-    print(InstanceTwo.display_estudios())
-    print('------------------------------------------------------')
-    print(InstanceTwo.display_leftbar())
-    print('------------------------------------------------------')
-    print(InstanceTwo.social_media_links())
-    print('------------------------------------------------------')
-    print(InstanceTwo.count_all_a())
-    print('------------------------------------------------------')
-    print('=======================================================')
-    ####################################################### Next Instance #######################################################
-    ####################################################### Next Instance #######################################################
-    InstanceThree = cs3(BeautifulSoup(portal_getter(
-    "https://fce.ufm.edu/carrera/cs/"), "html.parser"))
-    print('============================3==========================')
-    print('------------------------------------------------------')
-    print(InstanceThree.get_title())
-    print('------------------------------------------------------')
-    print(InstanceThree.get_href())
-    print('------------------------------------------------------')
-    print(InstanceThree.download_FCE_logo())
-    print('------------------------------------------------------')
-    print(InstanceThree.meta_title_description())
-    print('------------------------------------------------------')
-    print(InstanceThree.count_all_a())
-    print('------------------------------------------------------')
-    print(InstanceThree.count_all_divs())
-    print('------------------------------------------------------')
-    print('=======================================================')
-    ####################################################### Next Instance #######################################################
-    ####################################################### Next Instance #######################################################
-    InstanceFour = Directorio(BeautifulSoup(portal_getter(
-    'https://www.ufm.edu/Directorio'), "html.parser"))
-    print('============================4==========================')
-    print('------------------------------------------------------')
-    print(InstanceFour.sort_emails_alphabetically())
-    print('------------------------------------------------------')
-    print(InstanceFour.vowel_emails())
-    print('------------------------------------------------------')
-    print(InstanceFour.get_the_info_for_json())
-    print('------------------------------------------------------')
-    print('=======================================================')
-    ####################################################### Next Instance #######################################################
-    ####################################################### Next Instance #######################################################
-
-def ONE():
-    InstanceOne = PortalOne(BeautifulSoup(portal_getter("http://ufm.edu/Portal"), "html.parser"))
-    print('============================1==========================')
-    print('------------------------------------------------------')
-    print(InstanceOne.get_title())
-    print('------------------------------------------------------')
-    print(InstanceOne.get_address())
-    print('------------------------------------------------------')
-    print(InstanceOne.get_phone_and_email())
-    print('------------------------------------------------------')
-    print(InstanceOne.get_menu_table())
-    print('------------------------------------------------------')
-    print(InstanceOne.properties_href())
-    print('------------------------------------------------------')
-    print(InstanceOne.get_href_ufm_mail_button())
-    print('------------------------------------------------------')
-    print(InstanceOne.get_href_MiU_button())
-    print('------------------------------------------------------')
-    print(InstanceOne.hrefs_img())
-    print('------------------------------------------------------')
-    print(InstanceOne.count_a())
-    print('------------------------------------------------------')
-    print('=======================================================') 
-
-def TWO():
-    InstanceTwo = Estudios2(BeautifulSoup(portal_getter(
-    "http://ufm.edu/Estudios"), "html.parser"))
-    print('============================2==========================')
-    print('------------------------------------------------------')
-    print(InstanceTwo.navigate_to_estudios())
-    print('------------------------------------------------------')
-    print(InstanceTwo.display_items_topmenu())
-    print('------------------------------------------------------')
-    print(InstanceTwo.display_estudios())
-    print('------------------------------------------------------')
-    print(InstanceTwo.display_leftbar())
-    print('------------------------------------------------------')
-    print(InstanceTwo.social_media_links())
-    print('------------------------------------------------------')
-    print(InstanceTwo.count_all_a())
-    print('------------------------------------------------------')
-    print('=======================================================')
-
-def THREE():
-    InstanceThree = cs3(BeautifulSoup(portal_getter(
-    "https://fce.ufm.edu/carrera/cs/"), "html.parser"))
-    print('============================3==========================')
-    print('------------------------------------------------------')
-    print(InstanceThree.get_title())
-    print('------------------------------------------------------')
-    print(InstanceThree.get_href())
-    print('------------------------------------------------------')
-    print(InstanceThree.download_FCE_logo())
-    print('------------------------------------------------------')
-    print(InstanceThree.meta_title_description())
-    print('------------------------------------------------------')
-    print(InstanceThree.count_all_a())
-    print('------------------------------------------------------')
-    print(InstanceThree.count_all_divs())
-    print('------------------------------------------------------')
-    print('=======================================================')
-
-def FOUR():
-    InstanceFour = Directorio(BeautifulSoup(portal_getter(
-    'https://www.ufm.edu/Directorio'), "html.parser"))
-    print('============================4==========================')
-    print('------------------------------------------------------')
-    print(InstanceFour.sort_emails_alphabetically())
-    print('------------------------------------------------------')
-    print(InstanceFour.vowel_emails())
-    print('------------------------------------------------------')
-    print(InstanceFour.get_the_info_for_json())
-    print('------------------------------------------------------')
-    print('=======================================================')
 
 def portal_getter(url_portal):
     try:
@@ -171,12 +20,12 @@ def portal_getter(url_portal):
 
     return html_content
 
+####################################################### PORTALONE #######################################################
+####################################################### PORTALONE #######################################################
+####################################################### PORTALONE #######################################################
+####################################################### PORTALONE #######################################################
 
-# soup_portal = BeautifulSoup(portal_getter(
-#     "http://ufm.edu/Portal"), "html.parser")
-
-
-class PortalOne():
+class PortalOne1():
     def __init__(self, soup_portal):
         self.soup = soup_portal
 
@@ -190,21 +39,25 @@ class PortalOne():
         for i in title:
             M = M + i
         return M
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def get_address(self):
         a = []
         for _a_ in self.soup.find_all("a"):
             a.append(str(_a_))
+        acounter = 0
         for h in a:
             if 'Calle Manuel F.' in h:
-                h = h.replace(
+                a[acounter] = a[acounter].replace(
                     '<a data-toggle="modal" href="#myModal">', '')
-                h = h.replace(
+                a[acounter] = a[acounter].replace(
                     '<span style="font-size:10px;">', '')
-                h = h.replace('</span>', '')
-                h = h.replace('</a>', '')
-                return h
-
+                a[acounter] = a[acounter].replace('</span>', '')
+                a[acounter] = a[acounter].replace('</a>', '')
+                acounter += 1
+        return h
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def get_phone_and_email(self):
         a = []
         for _a_ in self.soup.find_all("a"):
@@ -223,7 +76,8 @@ class PortalOne():
                 tel = tel.replace('</a>', '')
                 mail = tel
         return telephone, mail
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def get_menu_table(self):
         nav = self.soup.find(id="menu-table").text
         nav = str(nav).replace('    ', '')
@@ -234,14 +88,16 @@ class PortalOne():
         nav = str(nav).replace('[', '')
         nav = str(nav).replace(']', '')
         return nav
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def properties_href(self):
         links = []
         for hr in self.soup.find_all("a", href=True):
             if 'http' in str(hr):
                 links.append(hr['href'])
         return links
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def get_href_ufm_mail_button(self):
         for mail_button in self.soup.find_all(id="ufmail_"):
             mail_button = str(mail_button).replace(
@@ -250,7 +106,8 @@ class PortalOne():
                 ' id="ufmail_" style="padding:5px 16px;">UFMail</a>', '')
             mail = mail_button
         return mail
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def get_href_MiU_button(self):
         for MiU_button in self.soup.find_all(id="miu_"):
             # MiU_button = str(MiU_button).replace(
@@ -259,7 +116,8 @@ class PortalOne():
             #     ' id="miu_" style="padding:5px 16px;;">MiU</a>', '')
             MiU = MiU_button
         return MiU
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def hrefs_img(self):
         img = []
         for i in self.soup.findAll('img'):
@@ -268,37 +126,47 @@ class PortalOne():
         # counter = 0
         for a in img:
             if '<img src' in a:
-                filt.append(a)
-                # print(a, counter)
-                # counter += 1
+                filt.append(a.replace('\n',''))
+                
         return img, filt
-
-    def count_a(self):
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
+    def count_a_and_csv_write(self):
         counter = 0
         a = []
         for _ in self.soup.find_all("a"):
             a.append(_)
             counter += 1
-        return a, counter
+        # print(counter)
 
-    def write_to_csv(self, from_count_A):
-        with open('logs/extra_as.txt', 'w+') as f:
-            f.writelines()
+        with open('logs/extra_as.txt','w+') as f:
+            f.seek(0)
+            f.truncate()
+            f.seek(0)
+            for line in a:
+                f.write(str(line))
+        return counter
+    
+    
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
 
-
-# Instance1 = PortalOne(soup_portal)
-# Instance1.get_href_MiU_button()
-
+####################################################### ESTUDIOS2 #######################################################
+####################################################### ESTUDIOS2 #######################################################
+####################################################### ESTUDIOS2 #######################################################
+####################################################### ESTUDIOS2 #######################################################
 
 class Estudios2():
     def __init__(self, soup_estudios):
         self.soup_estudios = soup_estudios
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def navigate_to_estudios(self):
         url_portal = "https://www.ufm.edu/Portal"
         url_estudios = url_portal.replace('Portal', 'Estudios')
         return url_estudios
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def display_items_topmenu(self):
         div = ''
         for _ in self.soup_estudios.find_all(id="topmenu"):
@@ -312,7 +180,8 @@ class Estudios2():
         div = div.split(',')
         div = list(filter(None, div))
         return div
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def display_estudios(self):
         estudios = self.soup_estudios.findAll("div", {"class": "estudios"})
         estudios = list(estudios)
@@ -321,13 +190,15 @@ class Estudios2():
             estudios[counter] = str(estudios[counter]).replace('<div class="estudios">', '').replace(
                 '</div>', '').replace('<div class="estudios" style="color:#294b9a;">', '').replace('<b>', '').replace('</b>', '')
             counter += 1
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def display_leftbar(self):
         lft_bar = self.soup_estudios.findAll("div", {"class": "leftbar"})
         for i in lft_bar:
             L = i.find_all('li')
         print(L)
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def social_media_links(self):
         social_media_links = self.soup_estudios.find_all(
             "div", {"class": "social pull-right"})
@@ -341,7 +212,8 @@ class Estudios2():
             counter += 1
 
         return L
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def count_all_a(self):
         A = self.soup_estudios.find_all("a")
         counter = 0
@@ -349,14 +221,10 @@ class Estudios2():
             counter += 1
         return counter
 
-
-# Instance = Estudios2(soup_estudios)
-# Instance.count_all_a()
-
-
-soup_cs = BeautifulSoup(portal_getter(
-    "https://fce.ufm.edu/carrera/cs/"), "html.parser")
-
+####################################################### CS3CS3CS3CS3 #######################################################
+####################################################### CS3CS3CS3CS3 #######################################################
+####################################################### CS3CS3CS3CS3 #######################################################
+####################################################### CS3CS3CS3CS3 #######################################################
 
 class cs3():
     def __init__(self, soup_cs):
@@ -372,7 +240,8 @@ class cs3():
         for a in title:
             T = T + str(a)
         return T
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def get_href(self):
         href = self.soup_cs.find_all("a")
         H = []
@@ -386,7 +255,8 @@ class cs3():
                 if ('href' in a) and ('https://' in a):
                     F.append(a.replace('href=', ''))
         return F
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def download_FCE_logo(self):
         url = self.soup_cs.find_all("img", {
                                     "src": "https://fce.ufm.edu/carrera/wp-content/uploads/2017/10/MapaLogotipos-CIENCIAS-ECONOMICAS_1H-1Col-Inv.png"})
@@ -402,7 +272,8 @@ class cs3():
 
         open('image_logo.png',
              'wb').write(files.content)
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def meta_title_description(self):
         meta = self.soup_cs.find_all("meta")
         title = []
@@ -414,14 +285,16 @@ class cs3():
             if 'description' in i:
                 description.append(i)
         return meta
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def count_all_a(self):
         A = self.soup_cs.findAll("a")
         counter = 0
         for i in A:
             counter += 1
         return counter
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def count_all_divs(self):
         div = self.soup_cs.findAll("div")
         counter = 0
@@ -429,10 +302,10 @@ class cs3():
             counter += 1
         return counter
 
-
-# Instance = cs3(soup_cs)
-# print(Instance.count_all_divs())
-
+####################################################### DIRECTORIO4 #######################################################
+####################################################### DIRECTORIO4 #######################################################
+####################################################### DIRECTORIO4 #######################################################
+####################################################### DIRECTORIO4 #######################################################
 
 class Directorio():
     def __init__(self, soup_directorio):
@@ -453,11 +326,11 @@ class Directorio():
             counter += 1
 
         email_L.sort()
-        # for z in email_L:
-        #     print(z)
-        # self.email_L = email_L
 
         return email_L
+
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
 
     def vowel_emails(self):
         L = self.sort_emails_alphabetically()
@@ -474,9 +347,10 @@ class Directorio():
         # for a in vowelized:
         #     print(a)
         return vowelized
-
+    ####################################################### SEPARATOR #######################################################
+    ####################################################### SEPARATOR #######################################################
     def get_the_info_for_json(self):
-        master = {'Edificio Academico':[],'Edificio Escuela de Negocios':[],'6 Avenida 7-55':[],'6 Calle 7-11':[],'Centro estudiantil':[],'Centro Cultural':[] ,'Centro Cultural, Auditorio Juan Bautista Gutierrez':[],'Centro Estudiantil':[],'Edificio Biblioteca':[],'No location':[]}
+        master = {'Edificio Academico':[],'Edificio Escuela de Negocios':[],'6 Avenida 7-55':[],'6 Calle 7-11':[],'Centro estudiantil':[],'Centro Cultural':[],'Centro Estudiantil':[],'Edificio Biblioteca':[],'No location':[],'Campus Madrid':[],'Facultad de Arquitectura':[],'Facultad de Ciencias Economicas':[],'Facultad de Derecho':[],'Facultad de Medicina':[],'Facultad de Odontologia':[],'Escuela de Cine y Artes Visuales':[],'Escuela de Negocios':[],'Escuela de Nutricion':[],'Escuela de Posgrado':[],'Escuela Superior de Ciencias Sociales':[],'Instituto de Estudios Politicos y Relaciones Internacionales':[],'Departamento de Psicologia':[],'Departamento de Educacion':[],'Michael Polanyi College':[],'Programa de Doctorado':[],'UFM Acton MBA in Entrepreneurship':[]}
         table = self.soup_directorio.find_all("table",{"class":"tabla ancho100"})
         tablaUno = table[0] 
         tablaDos = table[1]
@@ -524,43 +398,225 @@ class Directorio():
                 elif '6 Calle 7-11' in str(quintaColumna):
                     master['6 Calle 7-11'].append(primeraColumna)
 
-                elif 'Centro Estudiantil' in str(quintaColumna):
-                    master['Centro Estudiantil'].append(primeraColumna)
+                elif 'Centro estudiantil' in str(quintaColumna):
+                    master['Centro estudiantil'].append(primeraColumna)
                 
                 elif 'Edificio Biblioteca' in str(quintaColumna):
                     master['Edificio Biblioteca'].append(primeraColumna)
 
-                elif 'Centro Cultural ' in str(quintaColumna):
+                elif 'Centro Cultural' in str(quintaColumna):
                     master['Centro Cultural'].append(primeraColumna)
-                
-                elif 'Centro Cultural,' in str(quintaColumna):
-                    master['Centro Cultural, Auditorio Juan Bautista Gutierrez'].append(primeraColumna)
                     
                 elif ('Edificio Academico' not in str(quintaColumna)) and ('Edificio Escuela de Negocios' not in str(quintaColumna)) and ('6 Avenida 7-55' not in str(quintaColumna)) and ('6 Calle 7-11' not in str(quintaColumna)):
                     master['No location'].append(primeraColumna)
 
-        # try:
-        # for k in master.items():
-        #     master[k] = master[k.replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('ñ','n')]
-        
-        for values in master.values():
+        for k,v in master.items():
             counter = 0
-            for a in values:
-                values[counter] = values[counter].replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('ñ','n')
+            for element in v:
+                v[counter] = str(v[counter]).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U')
                 counter += 1
+
         master = str(master).replace("'",'"')
         master = ast.literal_eval(master)
-        print(master)
+        # print(master)
 
-        with open('logs/4directorio.json','w+') as f:
-            f.seek(0)
-            f.truncate()
-            f.seek(0)
-            json.dump(master,f)
-        # except:
-        #     print(master, 'could not write to log file')    
+        try:
+            with open('logs/4directorio.json','w+') as f:
+                f.seek(0)
+                f.truncate()
+                f.seek(0)
+                json.dump(master,f)
+        except:
+            print(master, 'could not write to log file')    
 
-# soup_directorio = Directorio(BeautifulSoup(portal_getter('https://www.ufm.edu/Directorio'), "html.parser"))
-InstanceFour = Directorio(BeautifulSoup(portal_getter(
+    def corelate_deans(self):
+        try:
+            with open('logs/4directorio.json','r+') as f:
+                Master = json.load(f)
+                if len(Master.items()) == 0:
+                    Master = {}
+        except:
+            Master = {}
+        print(Master)
+        table = self.soup_directorio.find_all("table",{"class":"tabla ancho100 col3"})
+        tableOne = table[1]
+        for fila in tableOne.find_all("tr"):
+            row = fila.find_all("td")
+            if len(row) == 3:
+                primeraColumna = str(row[0].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                segundaColumna = str(row[1].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                terceraColumna = str(row[2].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                
+                if primeraColumna in Master.items():
+                    Master[str(primeraColumna)].append(segundaColumna,terceraColumna)
+                if primeraColumna not in Master.items():
+                    Master[str(primeraColumna)] = [segundaColumna,terceraColumna]
+        with open('logs/4directorio.json','r+') as f:
+            json.dump(Master,f)
+            print('done')
+    
+    def csv_dump(self):
+        rector = []
+        CamMad = []
+        Alumni = []
+        
+        table = self.soup_directorio.find_all("table",{"class":"tabla ancho100 col3"})
+        tableOne = table[0]
+        for fila in tableOne.find_all("tr"):
+            row = fila.find_all("td")
+            if len(row) == 3:
+                primeraColumna = str(row[0].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                segundaColumna = str(row[1].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                terceraColumna = str(row[2].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                
+                if 'Gabriel Calzada' in segundaColumna:
+                    rector1 = primeraColumna
+                    rector2 = segundaColumna
+                    rector3 = terceraColumna
+                    rector.append([rector1,rector2,rector3])
+                    
+        # print(rector)
+        tableTwo = table[1]
+        # print(tableTwo)
+        for fila1 in tableTwo.find_all("tr"):
+            row2 = fila1.find_all("td")
+            if len(row2) == 3:
+                primeraColumna1 = str(row2[0].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                segundaColumna1 = str(row2[1].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                terceraColumna1 = str(row2[2].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+
+                if 'Gonzalo Mel' in segundaColumna1:
+                    CamMad1 = primeraColumna1
+                    CamMad2 = segundaColumna1
+                    CamMad3 = terceraColumna1
+                    CamMad.append([CamMad1,CamMad2,CamMad3])
+                    
+        # print(CamMad)
+        tableThree = table[2]
+        for fila2 in tableThree.find_all("tr"):
+            row3 = fila2.find_all("td")
+            if len(row3) == 3:
+                primeraColumna2 = str(row3[0].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                segundaColumna2 = str(row3[1].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                terceraColumna2 = str(row3[2].text).replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace('Á','A').replace('É','E').replace('Í','I').replace('Ó','O').replace('Ú','U').replace('ñ','n').replace('\n','')
+                
+                if 'Porta' in segundaColumna2:
+                    Alumni1 = primeraColumna2
+                    Alumni2 = segundaColumna2
+                    Alumni3 = terceraColumna2
+                    Alumni.append([Alumni1,Alumni2,Alumni3])
+                    
+        Master = rector + CamMad + Alumni  
+        print(Master)
+        with open('logs/4directorio_3column_tables.csv','w') as f:
+            writer = csv.writer(f)
+            writer.writerows(Master)
+            f.close()
+    
+        
+
+
+
+# InstanceFour = Directorio(BeautifulSoup(portal_getter(
+    # 'https://www.ufm.edu/Directorio'), "html.parser"))
+# InstanceFour.get_the_info_for_json()
+# InstanceFour.corelate_deans()
+# InstanceFour.csv_dump()
+
+def ALL():
+    ONE()
+    TWO()
+    THREE()
+    FOUR()
+
+def ONE():
+    Instance = PortalOne1(BeautifulSoup(portal_getter('https://www.ufm.edu/Portal'),'html.parser'))
+    TI = Instance.get_title()
+    print(Instance.get_title())
+    
+    AD = Instance.get_address()
+    print(Instance.get_address())
+    
+    PE = Instance.get_phone_and_email()
+    print(Instance.get_phone_and_email())
+
+    MN = Instance.get_menu_table()
+    print(Instance.get_menu_table())
+
+    print('Currently exceding 30 lines thus writing to log')
+
+    PR = Instance.properties_href() #excedes
+    MA = Instance.get_href_ufm_mail_button()
+    BU = Instance.get_href_MiU_button()
+    HR = Instance.hrefs_img()
+    CV = Instance.count_a_and_csv_write()
+
+    Master = [TI,AD,PE,MN,PR,MA,BU,HR,CV]
+    with open('logs/all_master_excedes_30_lines.log', 'w+') as f:
+        f.seek(0)
+        f.truncate()
+        f.seek(0)
+        for line in Master:
+            f.write(str(line))
+
+
+def TWO():
+    InstanceTwo = Estudios2(BeautifulSoup(portal_getter(
+    "http://ufm.edu/Estudios"), "html.parser"))
+    print('============================2===============================================================================')
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceTwo.navigate_to_estudios())
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceTwo.display_items_topmenu())
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceTwo.display_estudios())
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceTwo.display_leftbar())
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceTwo.social_media_links())
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceTwo.count_all_a())
+    print('------------------------------------------------------------------------------------------------------------')
+    print('==============================================================================================================')
+
+def THREE():
+    InstanceThree = cs3(BeautifulSoup(portal_getter(
+    "https://fce.ufm.edu/carrera/cs/"), "html.parser"))
+    print('============================3===============================================================================')
+    print('------------------------------------------------------------------------------------------------------------')
+    TI=InstanceThree.get_title()
+    print(TI)
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceThree.download_FCE_logo(),'printed logo')
+    print('Excedes 30! writind to log')
+    HR = InstanceThree.get_href()
+    DES = InstanceThree.meta_title_description()
+    COUNT = InstanceThree.count_all_a()
+    DIVS = InstanceThree.count_all_divs()
+    Master = [TI,HR,DES,COUNT,DIVS]
+    with open('THREE_LOG_EXCEDES30.txt','w+') as f:
+        f.seek(0)
+        f.truncate()
+        f.seek(0)
+        for line in Master:
+            f.write(str(line))
+    print('==============================================================================================================')
+
+def FOUR():
+    InstanceFour = Directorio(BeautifulSoup(portal_getter(
     'https://www.ufm.edu/Directorio'), "html.parser"))
-print(InstanceFour.get_the_info_for_json())
+    print('============================4=================================================================================')
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceFour.sort_emails_alphabetically())
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceFour.vowel_emails())
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceFour.get_the_info_for_json())
+    print('------------------------------------------------------------------------------------------------------------')
+    print(InstanceFour.corelate_deans())
+    print('------------------------------------------------------------------------------------------------------------')
+    InstanceFour.csv_dump()
+    print('==============================================================================================================')
+
+
+

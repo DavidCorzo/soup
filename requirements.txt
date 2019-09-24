@@ -2,3 +2,7 @@ bs4
 requests
 csv
 json
+sys
+re
+urllib
+ast
