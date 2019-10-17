@@ -139,7 +139,7 @@ class PortalOne1():
             counter += 1
         # print(counter)
 
-        with open('logs/extra_as.txt','w+') as f:
+        with open('log/extra_as.txt','w+') as f:
             f.seek(0)
             f.truncate()
             f.seek(0)
@@ -552,7 +552,7 @@ def ONE():
     CV = Instance.count_a_and_csv_write()
 
     Master = [TI,AD,PE,MN,PR,MA,BU,HR,CV]
-    with open('logs/all_master_excedes_30_lines.log', 'w+') as f:
+    with open('log/all_master_excedes_30_lines.log', 'w+') as f:
         f.seek(0)
         f.truncate()
         f.seek(0)
@@ -594,7 +594,7 @@ def THREE():
     COUNT = InstanceThree.count_all_a()
     DIVS = InstanceThree.count_all_divs()
     Master = [TI,HR,DES,COUNT,DIVS]
-    with open('THREE_LOG_EXCEDES30.txt','w+') as f:
+    with open('log/THREE_LOG_EXCEDES30.txt','w+') as f:
         f.seek(0)
         f.truncate()
         f.seek(0)
